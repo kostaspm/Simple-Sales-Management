@@ -1,0 +1,28 @@
+﻿@model Simple_Sales_Management.ViewModels.Home.HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <h4>Stats</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.NumberOfSellers):
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.NumberOfSellers)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.NumberOfSales):
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.NumberOfSales)
+        </dd>
+    </dl>
+</div>
