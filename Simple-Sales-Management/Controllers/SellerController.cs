@@ -70,7 +70,12 @@ namespace Simple_Sales_Management.Controllers
             var viewModel = new SellerDetailsViewModel { SellerId = seller.SellerId, FirstName = seller.FirstName, LastName = seller.LastName };
             if (seller.Sales != null)
             {
-
+                if(seller.Sales.Count == 0)
+                {
+                    ViewBag.ZeroSales = "This seller did not perform any sale this year.";
+                    viewModel.SellerDetails = new List<MonthlyInfo>();
+                    return View(viewModel);
+                }
                 var sellerDetails = seller.Sales.Where(x => x.SaleDate.Year == DateTime.Now.Year).GroupBy(x => x.SaleDate.Month).Select(m => new MonthlyInfo {
                     MonthId = m.Key,
                     MonthName = DateTimeFormatInfo.CurrentInfo.GetAbbreviatedMonthName(m.Key),

@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List of Sales</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New Sale</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -28,7 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Amount)
+                @Html.DisplayFor(modelItem => item.Amount)€
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SaleDate)
